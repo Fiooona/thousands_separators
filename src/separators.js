@@ -8,8 +8,8 @@ function thousands_separators(num) {
         //如果有4个相连的数字
         num1[0]=num.replace(/(\d+)(\d{3})/,'$1,$2');
     }
-    num=num1[0]+"."+num2[1];
-    return num;
+    var s=num1[0]+"."+num2[1];
+    return s;
     //document.write(num);
 }
 module.exports = thousands_separators;
