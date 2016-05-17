@@ -9,6 +9,9 @@ function thousands_separators(num) {
         num1[0]=num.replace(/(\d+)(\d{3})/,'$1,$2');
     }
     num=num1[0]+"."+num2[1];
+    return num;
+    //document.write(num);
 }
 module.exports = thousands_separators;
+//thousands_separators(10000000);
 
