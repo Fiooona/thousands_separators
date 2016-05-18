@@ -1,23 +1,23 @@
 'use strict';
 
-function thousands_separators(num) {
-    function thousands_separators(num){
-        num=num.toString();
-        if(num.indexOf(".")==-1) {
-            while(/\d{4}/.test(num)) {
-                num = num.replace(/(\d+)(\d{3}\,)/, '$1,$2');
-            }
-        }
-        else{
-            var num1=num.split(".");
-            while(/\d{4}/.test(num1[0])) {
-                num1[0] = num1[0].replace(/(\d+)(\d{3})/, '$1,$2');
-            }
-
+function thousands_separators(num){
+    num=num.toString();
+    if(num.indexOf(".")==-1) {
+//            while(/\d{4}/.test(num)) {
+//                num = num.replace(/(\d+)(\d{3}\,)/, '$1,$2');
+//            }
+        num=num.replace(/(\d{1,3})(?=(\d{3})+$)/g,'$1,');
+    }
+    else{
+        var num1=num.split(".");
+        while(/\d{4}/.test(num1[0])) {
+            num1[0] = num1[0].replace(/(\d+)(\d{3})/, '$1,$2');
             num=num1[0]+"."+num1[1];
         }
-        return num;
+
+
     }
+    return num;
 }
 //以下这种方法只能完成小数点后的数字小于3 的情况，
 //function thousands_separators(num){
